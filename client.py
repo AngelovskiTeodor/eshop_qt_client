@@ -1,6 +1,5 @@
 import sys
 import requests
-from bs4 import BeautifulSoup
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 
@@ -10,8 +9,8 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 Window {{
-    height: 600
-    width: 800
+    height: 320
+    width: 480
     visible: true
     title: "E-Shop"
 
@@ -30,6 +29,7 @@ Window {{
         Text {{
             id: title
             text: "Product title"
+            font.pixelSize: 18
             Layout.alignment: Qt.AlignHCenter
         }}
         Text {{
@@ -49,7 +49,6 @@ Window {{
 if __name__=="__main__":
     eshop_api = "https://shagged-destroyers.000webhostapp.com/public/index.php/api"
     response = requests.get(eshop_api)
-    content = BeautifulSoup(response.text)
 
     titles = []
     prices = []
